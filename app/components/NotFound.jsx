@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import routes from '../constants/routes.json';
 import styles from './Home.scss';
 
-export default class Home extends Component {
+export default class NotFound extends Component {
   render() {
     return (
       <div className={styles.container} data-tid="container">
-        <h2>Home</h2>
-        <Link to={routes.COUNTER.path}>to Counter</Link>
+        <h1>Resource not found!</h1>
+        <Link to={routes.HOME.path}>Home</Link>
       </div>
     );
   }
