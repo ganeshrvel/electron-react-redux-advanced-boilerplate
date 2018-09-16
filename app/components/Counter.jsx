@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Counter.sass';
+import styles from './Counter.scss';
 import routes from '../constants/routes.json';
 
 export default class Counter extends Component {
