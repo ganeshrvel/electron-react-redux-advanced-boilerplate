@@ -5,7 +5,7 @@
 import webpack from 'webpack';
 import path from 'path';
 import merge from 'webpack-merge';
-import baseConfig from './webpack.config.base';
+import baseConfig from './config.base';
 import { dependencies } from '../package.json';
 import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
 import { PATHS } from '../app/utils/paths';
@@ -22,9 +22,9 @@ export default merge.smart(baseConfig, {
   externals: ['fsevents', 'crypto-browserify'],
 
   /**
-   * Use `module` from `webpack.config.renderer.dev.js`
+   * Use `module` from `config.renderer.dev.js`
    */
-  module: require('./webpack.config.renderer.dev').module,
+  module: require('./config.renderer.dev').module,
 
   entry: {
     renderer: Object.keys(dependencies || {}).filter(

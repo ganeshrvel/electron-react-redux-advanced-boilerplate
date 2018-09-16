@@ -11,7 +11,7 @@ import webpack from 'webpack';
 import chalk from 'chalk';
 import merge from 'webpack-merge';
 import { spawn, execSync } from 'child_process';
-import baseConfig from './webpack.config.base';
+import baseConfig from './config.base';
 import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
 import { PATHS } from '../app/utils/paths';
 
@@ -22,7 +22,7 @@ const publicPath = `http://localhost:${port}/dist`;
 const dll = path.resolve(PATHS.root, 'dll');
 const manifest = path.resolve(dll, 'renderer.json');
 const requiredByDLLConfig = module.parent.filename.includes(
-  'webpack.config.renderer.dev.dll'
+  'config.renderer.dev.dll'
 );
 
 /**
