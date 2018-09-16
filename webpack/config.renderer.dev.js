@@ -17,7 +17,7 @@ import { PATHS } from '../app/utils/paths';
 
 CheckNodeEnv('development');
 
-const port = process.env.PORT || 1212;
+const port = process.env.PORT || 4642;
 const publicPath = `http://localhost:${port}/dist`;
 const dll = path.resolve(PATHS.root, 'dll');
 const manifest = path.resolve(dll, 'renderer.json');
@@ -29,7 +29,7 @@ const requiredByDLLConfig = module.parent.filename.includes(
  * Warn if the DLL is not built
  */
 if (!requiredByDLLConfig && !(fs.existsSync(dll) && fs.existsSync(manifest))) {
-  console.log(
+  console.info(
     chalk.black.bgYellow.bold(
       'The DLL files are missing. Sit back while we build them for you with "yarn build-dll"'
     )
