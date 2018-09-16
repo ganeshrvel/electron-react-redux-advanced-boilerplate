@@ -6,22 +6,19 @@ import webpack from 'webpack';
 import path from 'path';
 import merge from 'webpack-merge';
 import baseConfig from './webpack.config.base';
-import { dependencies } from './package.json';
-import CheckNodeEnv from './internals/scripts/CheckNodeEnv';
+import { dependencies } from '../package.json';
+import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
+import { PATHS } from '../app/utils/paths';
 
 CheckNodeEnv('development');
 
-const dist = path.resolve(process.cwd(), 'dll');
+const dll = path.join(PATHS.root, 'dll');
 
 export default merge.smart(baseConfig, {
   context: process.cwd(),
-
   devtool: 'eval',
-
   mode: 'development',
-
   target: 'electron-renderer',
-
   externals: ['fsevents', 'crypto-browserify'],
 
   /**
@@ -37,14 +34,14 @@ export default merge.smart(baseConfig, {
 
   output: {
     library: 'renderer',
-    path: dist,
+    path: dll,
     filename: '[name].dev.dll.js',
     libraryTarget: 'var'
   },
 
   plugins: [
     new webpack.DllPlugin({
-      path: path.join(dist, '[name].json'),
+      path: path.join(dll, '[name].json'),
       name: '[name]'
     }),
 
@@ -64,9 +61,9 @@ export default merge.smart(baseConfig, {
     new webpack.LoaderOptionsPlugin({
       debug: true,
       options: {
-        context: path.resolve(process.cwd(), 'app'),
+        context: PATHS.app,
         output: {
-          path: path.resolve(process.cwd(), 'dll')
+          path: dll
         }
       }
     })

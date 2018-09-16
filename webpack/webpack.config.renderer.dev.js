@@ -12,13 +12,14 @@ import chalk from 'chalk';
 import merge from 'webpack-merge';
 import { spawn, execSync } from 'child_process';
 import baseConfig from './webpack.config.base';
-import CheckNodeEnv from './internals/scripts/CheckNodeEnv';
+import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
+import { PATHS } from '../app/utils/paths';
 
 CheckNodeEnv('development');
 
 const port = process.env.PORT || 1212;
 const publicPath = `http://localhost:${port}/dist`;
-const dll = path.resolve(process.cwd(), 'dll');
+const dll = path.resolve(PATHS.root, 'dll');
 const manifest = path.resolve(dll, 'renderer.json');
 const requiredByDLLConfig = module.parent.filename.includes(
   'webpack.config.renderer.dev.dll'
@@ -38,16 +39,13 @@ if (!requiredByDLLConfig && !(fs.existsSync(dll) && fs.existsSync(manifest))) {
 
 export default merge.smart(baseConfig, {
   devtool: 'inline-source-map',
-
   mode: 'development',
-
   target: 'electron-renderer',
-
   entry: [
     'react-hot-loader/patch',
     `webpack-dev-server/client?http://localhost:${port}/`,
     'webpack/hot/only-dev-server',
-    path.join(__dirname, 'app/index.js')
+    path.join(PATHS.app, 'index.js')
   ],
 
   output: {
@@ -206,7 +204,7 @@ export default merge.smart(baseConfig, {
     requiredByDLLConfig
       ? null
       : new webpack.DllReferencePlugin({
-          context: process.cwd(),
+          context: PATHS.root,
           manifest: require(manifest),
           sourceType: 'var'
         }),
@@ -253,7 +251,7 @@ export default merge.smart(baseConfig, {
     lazy: false,
     hot: true,
     headers: { 'Access-Control-Allow-Origin': '*' },
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(PATHS.root, 'dist'),
     watchOptions: {
       aggregateTimeout: 300,
       ignored: /node_modules/,
@@ -265,7 +263,7 @@ export default merge.smart(baseConfig, {
     },
     before() {
       if (process.env.START_HOT) {
-        console.log('Starting Main Process...');
+        console.info('Starting Main Process...');
         spawn('npm', ['run', 'start-main-dev'], {
           shell: true,
           env: process.env,
