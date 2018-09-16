@@ -3,8 +3,8 @@ import thunk from 'redux-thunk';
 import { createHashHistory } from 'history';
 import { routerMiddleware, routerActions } from 'react-router-redux';
 import { createLogger } from 'redux-logger';
-import rootReducer from '../../reducers/index';
-import * as counterActions from '../../actions/counter';
+import rootReducer from '../reducers/index';
+import * as counterActions from '../actions/counter';
 
 const history = createHashHistory();
 
@@ -52,8 +52,8 @@ const storeConfig = initialState => {
   const store = createStore(rootReducer, initialState, enhancer);
 
   if (module.hot) {
-    module.hot.accept('../../reducers', () =>
-      store.replaceReducer(require('../../reducers/index'))
+    module.hot.accept('../reducers', () =>
+      store.replaceReducer(require('../reducers/index'))
     );
   }
 
