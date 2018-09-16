@@ -15,7 +15,7 @@ CheckNodeEnv('development');
 const dll = path.join(PATHS.root, 'dll');
 
 export default merge.smart(baseConfig, {
-  context: process.cwd(),
+  context: PATHS.root,
   devtool: 'eval',
   mode: 'development',
   target: 'electron-renderer',

@@ -3,12 +3,12 @@ import thunk from 'redux-thunk';
 import { createHashHistory } from 'history';
 import { routerMiddleware, routerActions } from 'react-router-redux';
 import { createLogger } from 'redux-logger';
-import rootReducer from '../reducers';
-import * as counterActions from '../actions/counter';
+import rootReducer from '../../reducers/index';
+import * as counterActions from '../../actions/counter';
 
 const history = createHashHistory();
 
-const configureStore = initialState => {
+const storeConfig = initialState => {
   // Redux Configuration
   const middleware = [];
   const enhancers = [];
@@ -52,12 +52,12 @@ const configureStore = initialState => {
   const store = createStore(rootReducer, initialState, enhancer);
 
   if (module.hot) {
-    module.hot.accept('../reducers', () =>
-      store.replaceReducer(require('../reducers'))
+    module.hot.accept('../../reducers', () =>
+      store.replaceReducer(require('../../reducers/index'))
     );
   }
 
   return store;
 };
 
-export default { configureStore, history };
+export default { storeConfig, history };
