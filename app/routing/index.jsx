@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react';
 import { Switch, Route } from 'react-router';
 import routes from './routes.json';

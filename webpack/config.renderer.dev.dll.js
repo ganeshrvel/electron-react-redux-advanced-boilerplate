@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Builds the DLL for development electron renderer process
  */

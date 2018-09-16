@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Webpack config for production electron main process
  */

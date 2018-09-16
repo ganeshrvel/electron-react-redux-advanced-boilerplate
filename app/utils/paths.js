@@ -1,3 +1,5 @@
+'use strict';
+
 import path from 'path';
 const root = process.cwd();
 export const PATHS = {

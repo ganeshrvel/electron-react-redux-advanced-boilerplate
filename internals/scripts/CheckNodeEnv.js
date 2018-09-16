@@ -1,3 +1,5 @@
+'use strict';
+
 import chalk from 'chalk';
 
 export default function CheckNodeEnv(expectedEnv) {

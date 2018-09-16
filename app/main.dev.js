@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * This module executes inside of electron's main process. You can start
  * electron renderer process from here and communicate with the other processes

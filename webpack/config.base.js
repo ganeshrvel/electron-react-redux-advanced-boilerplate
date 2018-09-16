@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Base webpack config used across other specific configs
  */
