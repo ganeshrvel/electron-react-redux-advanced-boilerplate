@@ -17,11 +17,11 @@ export default merge.smart(baseConfig, {
   devtool: 'source-map',
   mode: 'production',
   target: 'electron-main',
-  entry: path.join(PATHS.app, `main.dev`),
+  entry: './app/main.dev',
 
   output: {
-    path: PATHS.app,
-    filename: 'main.prod.js'
+    path: PATHS.root,
+    filename: './app/main.prod.js'
   },
 
   optimization: {

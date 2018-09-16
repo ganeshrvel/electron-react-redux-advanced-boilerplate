@@ -19,11 +19,11 @@ export default merge.smart(baseConfig, {
   devtool: 'source-map',
   mode: 'production',
   target: 'electron-renderer',
-  entry: path.join(PATHS.app, 'index'),
+  entry: './app/index',
 
   output: {
     path: path.join(PATHS.app, 'dist'),
-    publicPath: path.join(PATHS.root, 'dist'),
+    publicPath: '../dist/',
     filename: 'renderer.prod.js'
   },
 
