@@ -1,8 +1,8 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
-  "version": "0.14.0",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "name": "squash-archiver",
+  "productName": "Squash Archiver",
+  "version": "0.0.1",
+  "description": "Squash Archiver - Full fledged compressor/decompressor",
   "scripts": {
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
     "build-dll": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.renderer.dev.dll.js --colors",
@@ -20,10 +20,10 @@
     "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron -r babel-register ./app/main.dev.js",
     "start-renderer-dev": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.config.renderer.dev.js"
   },
-  "browserslist": "electron 2.0",
+  "browserslist": "electron 3.0",
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
+    "productName": "Squash Archiver",
+    "appId": "io.ganeshrvel.squash-archiver",
     "files": [
       "dist/",
       "node_modules/",
@@ -65,28 +65,28 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chentsulin/electron-react-boilerplate.git"
+    "url": "git+https://github.com/ganeshrvel/squash-archiver.git"
   },
   "author": {
-    "name": "C. T. Lin",
-    "email": "chentsulin@gmail.com",
-    "url": "https://github.com/chentsulin"
+    "name": "Ganesh Rathinavel",
+    "email": "ganeshrvel@hotmail.com",
+    "url": "https://github.com/ganeshrvel"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chentsulin/electron-react-boilerplate/issues"
+    "url": "https://github.com/ganeshrvel/squash-archiver/issues"
   },
   "keywords": [
-    "electron",
-    "boilerplate",
-    "react",
-    "redux",
-    "sass",
-    "webpack",
-    "hot",
-    "reload"
+    "squash-archiver",
+    "compress",
+    "decompress",
+    "uncompress",
+    "zip",
+    "unzip",
+    "rar",
+    "unrar"
   ],
-  "homepage": "https://github.com/chentsulin/electron-react-boilerplate#readme",
+  "homepage": "https://github.com/ganeshrvel/squash-archiver#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -105,7 +105,7 @@
     "cross-spawn": "^6.0.5",
     "css-loader": "^1.0.0",
     "detect-port": "^1.2.3",
-    "electron": "^2.0.9",
+    "electron": "3.0.0-beta.10",
     "electron-builder": "^20.28.4",
     "electron-devtools-installer": "^2.2.4",
     "electron-rebuild": "^1.8.2",
