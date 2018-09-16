@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Hello Electron React!</title>
+    <title>Squash Archiver</title>
     <script>
       (function() {
         if (!process.env.HOT) {
@@ -36,9 +36,7 @@
         );
 
         document.write(
-          scripts
-            .map(script => `<script defer src="${script}"><\/script>`)
-            .join('')
+          scripts.map(script => `<script defer src="${script}"><\/script>`).join('')
         );
       }
     </script>
