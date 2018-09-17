@@ -10,7 +10,7 @@ export default class NotFound extends Component {
     return (
       <div className={styles.container} data-tid="container">
         <h1>Resource not found!</h1>
-        <Link to={routes.HOME.path}>Home</Link>
+        <Link to={routes.Home.path}>Home</Link>
       </div>
     );
   }

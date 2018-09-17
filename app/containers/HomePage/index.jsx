@@ -10,7 +10,7 @@ export default class Home extends Component {
     return (
       <div className={styles.container} data-tid="container">
         <h2>Home</h2>
-        <Link to={routes.COUNTER.path}>to Counter</Link>
+        <Link to={routes.Counter.path}>to Counter</Link>
       </div>
     );
   }

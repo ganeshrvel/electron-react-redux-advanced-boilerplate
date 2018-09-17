@@ -6,12 +6,12 @@ import routes from './routes.json';
 import App from '../containers/App';
 import HomePage from '../containers/HomePage';
 import CounterPage from '../containers/CounterPage';
-import NotFound from '../containers/NotFoundPage';
+import NotFoundPage from '../containers/NotFoundPage';
 
 const routesComponents = {
-  HOME: HomePage,
-  COUNTER: CounterPage,
-  NOTFOUND: NotFound
+  Home: HomePage,
+  Counter: CounterPage,
+  NotFound: NotFoundPage
 };
 
 export default () => {

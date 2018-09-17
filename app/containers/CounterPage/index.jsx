@@ -19,7 +19,7 @@ class Counter extends Component {
     return (
       <div>
         <div className={styles.backButton} data-tid="backButton">
-          <Link to={routes.HOME.path}>
+          <Link to={routes.Home.path}>
             <i className="fa fa-arrow-left fa-3x" />
           </Link>
         </div>

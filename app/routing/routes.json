@@ -1,11 +1,11 @@
 {
-  "HOME": {
+  "Home": {
     "path": "/",
     "exact": true
   },
-  "COUNTER": {
+  "Counter": {
     "path": "/counter",
     "exact": true
   },
-  "NOTFOUND": {}
+  "NotFound": {}
 }
