@@ -9,7 +9,7 @@ import rootReducer from '../reducers';
 
 const history = createHashHistory();
 
-const storeConfig = initialState => {
+const configureStore = initialState => {
   // Redux Configuration
   const middleware = [];
   const enhancers = [];
@@ -54,4 +54,4 @@ const storeConfig = initialState => {
   return store;
 };
 
-export default { storeConfig, history };
+export default { configureStore, history };

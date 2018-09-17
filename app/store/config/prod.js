@@ -10,8 +10,8 @@ const history = createHashHistory();
 const router = routerMiddleware(history);
 const enhancer = applyMiddleware(thunk, router);
 
-function storeConfig(initialState) {
+function configureStore(initialState) {
   return createStore(rootReducer, initialState, enhancer);
 }
 
-export default { storeConfig, history };
+export default { configureStore, history };
