@@ -3,26 +3,28 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import Root from './containers/Root';
+import Root from './containers/App/Root';
 import { storeConfig, history } from './store/config';
 import './styles/app.global.scss';
+
+const MOUNT_POINT = document.getElementById('root');
 
 const store = storeConfig();
 render(
   <AppContainer>
     <Root store={store} history={history} />
   </AppContainer>,
-  document.getElementById('root')
+  MOUNT_POINT
 );
 
 if (module.hot) {
-  module.hot.accept('./containers/Root', () => {
-    const NextRoot = require('./containers/Root');
+  module.hot.accept('./containers/App/Root', () => {
+    const NextRoot = require('./containers/App/Root');
     render(
       <AppContainer>
         <NextRoot store={store} history={history} />
       </AppContainer>,
-      document.getElementById('root')
+      MOUNT_POINT
     );
   });
 }

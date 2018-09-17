@@ -1,11 +1,13 @@
 'use strict';
-
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import styles from './Counter.scss';
-import routes from '../routing/routes.json';
+import * as CounterActions from '../../store/actions/counter';
+import styles from './styles/index.scss';
+import routes from '../../routing/routes';
 
-export default class Counter extends Component {
+class Counter extends Component {
   render() {
     const {
       increment,
@@ -62,3 +64,18 @@ export default class Counter extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    counter: state.counter
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(CounterActions, dispatch);
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Counter);

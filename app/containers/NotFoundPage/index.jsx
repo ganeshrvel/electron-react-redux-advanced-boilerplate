@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import routes from '../routing/routes.json';
-import styles from './Home.scss';
+import routes from '../../routing/routes.json';
+import styles from './styles/index.scss';
 
 export default class NotFound extends Component {
   render() {
