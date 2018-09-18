@@ -1,4 +1,5 @@
 'use strict';
+
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -24,7 +25,7 @@ class Counter extends Component {
           </Link>
         </div>
         <div className={`counter ${styles.counter}`} data-tid="counter">
-          {counter}
+          {counter.count}
         </div>
         <div className={styles.btnGroup}>
           <button

@@ -14,7 +14,8 @@ export function increment() {
 
 export function decrement() {
   return {
-    type: actionTypes.DECREMENT_COUNTER
+    type: actionTypes.DECREMENT_COUNTER,
+    payload: {}
   };
 }
 
@@ -22,7 +23,7 @@ export function incrementIfOdd() {
   return (dispatch, getState) => {
     const { counter } = getState();
 
-    if (counter % 2 === 0) {
+    if (counter.count % 2 === 0) {
       return;
     }
 

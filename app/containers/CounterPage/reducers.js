@@ -3,29 +3,31 @@
 import { actionTypes } from './actions';
 
 const defaultState = {
-  meta: {
-    isDefault: true,
-    isLoading: false,
-    error: {
-      status: false,
-      message: null
-    }
+  ___isDefault: true,
+  ___isLoading: false,
+  ___timeGenerated: null,
+  ___timeLastModified: null,
+  ___error: {
+    status: false,
+    message: null
   },
-  data: {
-    text: null,
-    otherValue: null,
-    obj: {
-      o: null
-    }
-  }
+
+  count: 0
 };
 
-export default function counter(state = null, action) {
-  switch (action.type) {
+export default function counter(state = defaultState, action) {
+  let { type, payload } = action;
+  switch (type) {
     case actionTypes.INCREMENT_COUNTER:
-      return state + 1;
+      return {
+        ...state,
+        count: state.count + 1
+      };
     case actionTypes.DECREMENT_COUNTER:
-      return state - 1;
+      return {
+        ...state,
+        count: state.count - 1
+      };
     default:
       return state;
   }
