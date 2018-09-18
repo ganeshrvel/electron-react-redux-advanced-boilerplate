@@ -2,7 +2,7 @@
 
 import { combineReducers } from 'redux';
 import { routerReducer as router } from 'react-router-redux';
-import counter from './counter';
+import counter from '../../containers/CounterPage/reducers';
 
 const rootReducer = combineReducers({
   counter,

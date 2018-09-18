@@ -1,6 +1,6 @@
 'use strict';
 
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/counter';
+import { INCREMENT_COUNTER, DECREMENT_COUNTER } from './actions';
 
 export default function counter(state = null, action) {
   switch (action.type) {
