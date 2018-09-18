@@ -30,7 +30,7 @@ class Counter extends Component {
         <div className={styles.btnGroup}>
           <button
             className={styles.btn}
-            onClick={increment}
+            onClick={() => increment()}
             data-tclass="btn"
             type="button"
           >
@@ -38,7 +38,7 @@ class Counter extends Component {
           </button>
           <button
             className={styles.btn}
-            onClick={decrement}
+            onClick={() => decrement()}
             data-tclass="btn"
             type="button"
           >
@@ -46,7 +46,7 @@ class Counter extends Component {
           </button>
           <button
             className={styles.btn}
-            onClick={incrementIfOdd}
+            onClick={() => incrementIfOdd()}
             data-tclass="btn"
             type="button"
           >
