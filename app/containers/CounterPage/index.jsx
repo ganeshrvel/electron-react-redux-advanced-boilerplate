@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as CounterActions from './actions';
 import styles from './styles/index.scss';
-import routes from '../../routing/routes';
+import { routes } from '../../routing';
 
 class Counter extends Component {
   render() {
