@@ -7,7 +7,8 @@ const actionTypesList = [
   'RES_LOAD',
   'FAIL_LOAD',
   'INCREMENT_COUNTER',
-  'DECREMENT_COUNTER'
+  'DECREMENT_COUNTER',
+  'API_FETCH_DEMO'
 ];
 
 export const actionTypes = prefixer(prefix, actionTypesList);
@@ -37,15 +38,46 @@ export function incrementIfOdd() {
     if (counter.count % 2 === 0) {
       return;
     }
-
-    increment();
+    dispatch(increment());
   };
 }
 
 export function incrementAsync(delay = 1000) {
   return dispatch => {
     setTimeout(() => {
-      increment();
+      dispatch(increment());
     }, delay);
+  };
+}
+
+export function apiFetchDemo({ title }) {
+  return dispatch => {
+    dispatch({
+      type: actionTypes.REQ_LOAD
+    });
+
+    return fetch(`http://api.plos.org/search?q=title:${title}`)
+      .then(res => {
+        if (res.status === 200) {
+          return res.json();
+        }
+        throw `page status: ${res.status}`;
+      })
+      .then(res =>
+        dispatch({
+          type: actionTypes.API_FETCH_DEMO,
+          payload: {
+            data: res
+          }
+        })
+      )
+      .catch(e =>
+        dispatch({
+          type: actionTypes.FAIL_LOAD,
+          payload: {
+            error: e
+          }
+        })
+      );
   };
 }

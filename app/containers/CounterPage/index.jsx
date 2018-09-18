@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import * as CounterActions from './actions';
+import * as actions from './actions';
 import styles from './styles/index.scss';
 import { routes } from '../../routing';
 
@@ -15,7 +15,8 @@ class Counter extends Component {
       incrementIfOdd,
       incrementAsync,
       decrement,
-      counter
+      counter,
+      apiFetchDemo
     } = this.props;
     return (
       <div>
@@ -23,6 +24,18 @@ class Counter extends Component {
           <Link to={routes.Home.path}>
             <i className="fa fa-arrow-left fa-3x" />
           </Link>
+        </div>
+        <div className={`counter ${styles.demoFetch}`}>
+          <textarea
+            rows="20"
+            cols="50"
+            value={
+              counter.demoFetchData
+                ? JSON.stringify(counter.demoFetchData)
+                : `Click Fetch Demo btn`
+            }
+            onChange={() => JSON.stringify(counter.demoFetchData)}
+          />
         </div>
         <div className={`counter ${styles.counter}`} data-tid="counter">
           {counter.count}
@@ -60,6 +73,14 @@ class Counter extends Component {
           >
             async
           </button>
+          <button
+            className={styles.btn}
+            onClick={() => apiFetchDemo({ title: `DNA` })}
+            data-tclass="btn"
+            type="button"
+          >
+            Fetch Demo
+          </button>
         </div>
       </div>
     );
@@ -73,7 +94,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(CounterActions, dispatch);
+  return bindActionCreators(actions, dispatch);
 }
 
 export default connect(
