@@ -3,14 +3,12 @@
 import { actionTypes } from './actions';
 
 const defaultState = {
-  ___meta: {
-    isDefault: true,
-    isLoading: false,
-    timeGenerated: null,
-    timeLastModified: null,
-    error: null
-  },
-  
+  ___isDefault: true,
+  ___isLoading: false,
+  ___timeGenerated: null,
+  ___timeLastModified: null,
+  ___error: null,
+
   count: 0,
   demoFetchData: null
 };
@@ -22,7 +20,7 @@ export default function counter(state = defaultState, action) {
     case actionTypes.REQ_LOAD:
       return {
         ...state,
-        isLoading: true
+        ___isLoading: true
       };
     case actionTypes.RES_LOAD:
       return {
@@ -32,8 +30,8 @@ export default function counter(state = defaultState, action) {
     case actionTypes.FAIL_LOAD:
       return {
         ...state,
-        isLoading: false,
-        error: payload.error
+        ___isLoading: false,
+        ___error: payload.error
       };
     /* </Meta Data> */
 
@@ -63,12 +61,10 @@ export default function counter(state = defaultState, action) {
 function setLoadedMetaData(state) {
   const ms = Date.now();
   return {
-    meta: {
-      isLoading: false,
-      isDefault: false,
-      timeGenerated: !state.timeGenerated ? ms : state.timeGenerated,
-      timeLastModified: ms,
-      error: null
-    }
+    __isLoading: false,
+    ___isDefault: false,
+    ___timeGenerated: state.___timeGenerated ? state.___timeGenerated : ms,
+    ___timeLastModified: ms,
+    ___error: null
   };
 }

@@ -4,20 +4,20 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import * as actions from './actions';
-import styles from './styles/index.scss';
+import { fetchUrl } from '../../api';
 import { routes } from '../../routing';
+import {
+  increment,
+  decrement,
+  apiFetchDemo,
+  failLoad,
+  reqLoad
+} from './actions';
+import styles from './styles/index.scss';
 
 class Counter extends Component {
   render() {
-    const {
-      increment,
-      incrementIfOdd,
-      incrementAsync,
-      decrement,
-      counter,
-      apiFetchDemo
-    } = this.props;
+    const { counter } = this.props;
     return (
       <div>
         <div className={styles.backButton} data-tid="backButton">
@@ -34,7 +34,7 @@ class Counter extends Component {
                 ? JSON.stringify(counter.demoFetchData)
                 : `Click Fetch Demo btn`
             }
-            onChange={() => JSON.stringify(counter.demoFetchData)}
+            readOnly
           />
         </div>
         <div className={`counter ${styles.counter}`} data-tid="counter">
@@ -43,7 +43,7 @@ class Counter extends Component {
         <div className={styles.btnGroup}>
           <button
             className={styles.btn}
-            onClick={() => increment()}
+            onClick={this.props.incrementOnClick}
             data-tclass="btn"
             type="button"
           >
@@ -51,7 +51,7 @@ class Counter extends Component {
           </button>
           <button
             className={styles.btn}
-            onClick={() => decrement()}
+            onClick={this.props.decrementOnClick}
             data-tclass="btn"
             type="button"
           >
@@ -59,7 +59,7 @@ class Counter extends Component {
           </button>
           <button
             className={styles.btn}
-            onClick={() => incrementIfOdd()}
+            onClick={this.props.incrementIfOddOnClick}
             data-tclass="btn"
             type="button"
           >
@@ -67,7 +67,7 @@ class Counter extends Component {
           </button>
           <button
             className={styles.btn}
-            onClick={() => incrementAsync()}
+            onClick={this.props.incrementAsyncOnClick.bind(this, 1000)}
             data-tclass="btn"
             type="button"
           >
@@ -75,7 +75,9 @@ class Counter extends Component {
           </button>
           <button
             className={styles.btn}
-            onClick={() => apiFetchDemo({ title: `DNA` })}
+            onClick={this.props.apiFetchDemoAsyncOnClick.bind(this, {
+              title: `DNA`
+            })}
             data-tclass="btn"
             type="button"
           >
@@ -87,15 +89,45 @@ class Counter extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapDispatchToProps = (dispatch, ownProps) =>
+  bindActionCreators(
+    {
+      incrementOnClick: event => (_, getState) => {
+        dispatch(increment());
+      },
+      decrementOnClick: event => (_, getState) => {
+        dispatch(decrement());
+      },
+      incrementIfOddOnClick: event => (_, getState) => {
+        const { counter } = getState();
+
+        if (counter.count % 2 === 0) {
+          return;
+        }
+        dispatch(increment());
+      },
+      incrementAsyncOnClick: (delay, event) => (_, getState) => {
+        setTimeout(() => {
+          dispatch(increment());
+        }, delay);
+      },
+      apiFetchDemoAsyncOnClick: ({ title }, event) => (_, getState) => {
+        dispatch(reqLoad());
+        fetchUrl({ title })
+          .then(res => {
+            dispatch(apiFetchDemo(res));
+          })
+          .catch(e => dispatch(failLoad(e)));
+      }
+    },
+    dispatch
+  );
+
+const mapStateToProps = state => {
   return {
     counter: state.counter
   };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actions, dispatch);
-}
+};
 
 export default connect(
   mapStateToProps,

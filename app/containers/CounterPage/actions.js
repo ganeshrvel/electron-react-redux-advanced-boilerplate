@@ -14,70 +14,37 @@ const actionTypesList = [
 export const actionTypes = prefixer(prefix, actionTypesList);
 
 export function increment() {
-  return (dispatch, getState) => {
-    dispatch({
-      type: actionTypes.INCREMENT_COUNTER,
-      payload: {}
-    });
+  return {
+    type: actionTypes.INCREMENT_COUNTER
   };
 }
 
 export function decrement() {
-  return (dispatch, getState) => {
-    dispatch({
-      type: actionTypes.DECREMENT_COUNTER,
-      payload: {}
-    });
+  return {
+    type: actionTypes.DECREMENT_COUNTER
   };
 }
 
-export function incrementIfOdd() {
-  return (dispatch, getState) => {
-    const { counter } = getState();
+export function reqLoad() {
+  return {
+    type: actionTypes.REQ_LOAD
+  };
+}
 
-    if (counter.count % 2 === 0) {
-      return;
+export function failLoad(e) {
+  return {
+    type: actionTypes.FAIL_LOAD,
+    payload: {
+      error: e
     }
-    dispatch(increment());
   };
 }
 
-export function incrementAsync(delay = 1000) {
-  return dispatch => {
-    setTimeout(() => {
-      dispatch(increment());
-    }, delay);
-  };
-}
-
-export function apiFetchDemo({ title }) {
-  return dispatch => {
-    dispatch({
-      type: actionTypes.REQ_LOAD
-    });
-
-    return fetch(`http://api.plos.org/search?q=title:${title}`)
-      .then(res => {
-        if (res.status === 200) {
-          return res.json();
-        }
-        throw `page status: ${res.status}`;
-      })
-      .then(res =>
-        dispatch({
-          type: actionTypes.API_FETCH_DEMO,
-          payload: {
-            data: res
-          }
-        })
-      )
-      .catch(e =>
-        dispatch({
-          type: actionTypes.FAIL_LOAD,
-          payload: {
-            error: e
-          }
-        })
-      );
+export function apiFetchDemo(data) {
+  return {
+    type: actionTypes.API_FETCH_DEMO,
+    payload: {
+      data: data
+    }
   };
 }
