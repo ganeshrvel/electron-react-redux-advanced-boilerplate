@@ -8,14 +8,11 @@ const defaultState = {
   ___isLoading: false,
   ___timeGenerated: null,
   ___timeLastModified: null,
-  ___error: null,
+  ___error: null
   /* </Meta Data> */
-  
-  count: 0,
-  demoFetchData: null
 };
 
-export default function counter(state = defaultState, action) {
+export default function app(state = defaultState, action) {
   let { type, payload } = action;
   switch (type) {
     /* <Meta Data> */
@@ -36,25 +33,6 @@ export default function counter(state = defaultState, action) {
         ___error: payload.error
       };
     /* </Meta Data> */
-
-    case actionTypes.INCREMENT_COUNTER:
-      return {
-        ...state,
-        ...setLoadedMetaData(state),
-        count: state.count + 1
-      };
-    case actionTypes.DECREMENT_COUNTER:
-      return {
-        ...state,
-        ...setLoadedMetaData(state),
-        count: state.count - 1
-      };
-    case actionTypes.API_FETCH_DEMO:
-      return {
-        ...state,
-        ...setLoadedMetaData(state),
-        demoFetchData: payload.data
-      };
     default:
       return state;
   }

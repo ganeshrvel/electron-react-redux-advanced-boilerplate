@@ -7,11 +7,11 @@ import { Link } from 'react-router-dom';
 import { fetchUrl } from '../../api';
 import { routes } from '../../routing';
 import {
-  increment,
-  decrement,
-  apiFetchDemo,
-  failLoad,
-  reqLoad
+  incrementCounter,
+  decrementCounter,
+  apiFetchDemoCounter,
+  failLoadCounter,
+  reqLoadCounter
 } from './actions';
 import styles from './styles/index.scss';
 
@@ -93,10 +93,10 @@ const mapDispatchToProps = (dispatch, ownProps) =>
   bindActionCreators(
     {
       incrementOnClick: event => (_, getState) => {
-        dispatch(increment());
+        dispatch(incrementCounter());
       },
       decrementOnClick: event => (_, getState) => {
-        dispatch(decrement());
+        dispatch(decrementCounter());
       },
       incrementIfOddOnClick: event => (_, getState) => {
         const { counter } = getState();
@@ -104,20 +104,20 @@ const mapDispatchToProps = (dispatch, ownProps) =>
         if (counter.count % 2 === 0) {
           return;
         }
-        dispatch(increment());
+        dispatch(incrementCounter());
       },
       incrementAsyncOnClick: (delay, event) => (_, getState) => {
         setTimeout(() => {
-          dispatch(increment());
+          dispatch(incrementCounter());
         }, delay);
       },
       apiFetchDemoAsyncOnClick: ({ title }, event) => (_, getState) => {
-        dispatch(reqLoad());
+        dispatch(reqLoadCounter());
         fetchUrl({ title })
           .then(res => {
-            dispatch(apiFetchDemo(res));
+            dispatch(apiFetchDemoCounter(res));
           })
-          .catch(e => dispatch(failLoad(e)));
+          .catch(e => dispatch(failLoadCounter(e)));
       }
     },
     dispatch

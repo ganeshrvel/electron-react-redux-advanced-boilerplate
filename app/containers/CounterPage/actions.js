@@ -13,25 +13,25 @@ const actionTypesList = [
 
 export const actionTypes = prefixer(prefix, actionTypesList);
 
-export function increment() {
+export function incrementCounter() {
   return {
     type: actionTypes.INCREMENT_COUNTER
   };
 }
 
-export function decrement() {
+export function decrementCounter() {
   return {
     type: actionTypes.DECREMENT_COUNTER
   };
 }
 
-export function reqLoad() {
+export function reqLoadCounter() {
   return {
     type: actionTypes.REQ_LOAD
   };
 }
 
-export function failLoad(e) {
+export function failLoadCounter(e) {
   return {
     type: actionTypes.FAIL_LOAD,
     payload: {
@@ -40,7 +40,7 @@ export function failLoad(e) {
   };
 }
 
-export function apiFetchDemo(data) {
+export function apiFetchDemoCounter(data) {
   return {
     type: actionTypes.API_FETCH_DEMO,
     payload: {
