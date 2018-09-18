@@ -1,17 +1,20 @@
 'use strict';
+import prefixer from '../../utils/reducerPrefixer.js';
 
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+const prefix = '@@counter';
+const actionTypesList = ['INCREMENT_COUNTER', 'DECREMENT_COUNTER'];
+
+export const actionTypes = prefixer(prefix, actionTypesList);
 
 export function increment() {
   return {
-    type: INCREMENT_COUNTER
+    type: actionTypes.INCREMENT_COUNTER
   };
 }
 
 export function decrement() {
   return {
-    type: DECREMENT_COUNTER
+    type: actionTypes.DECREMENT_COUNTER
   };
 }
 

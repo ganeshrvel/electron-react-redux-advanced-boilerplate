@@ -1,12 +1,30 @@
 'use strict';
 
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from './actions';
+import { actionTypes } from './actions';
+
+const defaultState = {
+  meta: {
+    isDefault: true,
+    isLoading: false,
+    error: {
+      status: false,
+      message: null
+    }
+  },
+  data: {
+    text: null,
+    otherValue: null,
+    obj: {
+      o: null
+    }
+  }
+};
 
 export default function counter(state = null, action) {
   switch (action.type) {
-    case INCREMENT_COUNTER:
+    case actionTypes.INCREMENT_COUNTER:
       return state + 1;
-    case DECREMENT_COUNTER:
+    case actionTypes.DECREMENT_COUNTER:
       return state - 1;
     default:
       return state;
