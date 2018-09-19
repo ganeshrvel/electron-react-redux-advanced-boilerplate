@@ -2,7 +2,7 @@
 
 import { actionTypes } from './actions';
 
-const defaultState = {
+export const initialState = {
   /* <Meta Data> */
   ___isDefault: true,
   ___isLoading: false,
@@ -12,7 +12,7 @@ const defaultState = {
   /* </Meta Data> */
 };
 
-export default function app(state = defaultState, action) {
+export default function app(state = initialState, action) {
   let { type, payload } = action;
   switch (type) {
     /* <Meta Data> */

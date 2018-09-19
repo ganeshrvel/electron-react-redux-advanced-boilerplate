@@ -13,11 +13,12 @@ import {
   failLoadCounter,
   reqLoadCounter
 } from './actions';
+import { _count, _demoFetchData } from './selectors';
 import styles from './styles/index.scss';
 
 class Counter extends Component {
   render() {
-    const { counter } = this.props;
+    const { count, demoFetchData } = this.props;
     return (
       <div>
         <div className={styles.backButton} data-tid="backButton">
@@ -30,15 +31,15 @@ class Counter extends Component {
             rows="20"
             cols="50"
             value={
-              counter.demoFetchData
-                ? JSON.stringify(counter.demoFetchData)
+              demoFetchData
+                ? JSON.stringify(demoFetchData)
                 : `Click Fetch Demo btn`
             }
             readOnly
           />
         </div>
         <div className={`counter ${styles.counter}`} data-tid="counter">
-          {counter.count}
+          {count}
         </div>
         <div className={styles.btnGroup}>
           <button
@@ -99,9 +100,9 @@ const mapDispatchToProps = (dispatch, ownProps) =>
         dispatch(decrementCounter());
       },
       incrementIfOddOnClick: event => (_, getState) => {
-        const { counter } = getState();
+        const { count } = getState().counter;
 
-        if (counter.count % 2 === 0) {
+        if (count % 2 === 0) {
           return;
         }
         dispatch(incrementCounter());
@@ -125,7 +126,8 @@ const mapDispatchToProps = (dispatch, ownProps) =>
 
 const mapStateToProps = state => {
   return {
-    counter: state.counter
+    count: _count(state),
+    demoFetchData: _demoFetchData(state)
   };
 };
 

@@ -2,7 +2,7 @@
 
 import { actionTypes } from './actions';
 
-const defaultState = {
+export const initialState = {
   /* <Meta Data> */
   ___isDefault: true,
   ___isLoading: false,
@@ -15,7 +15,7 @@ const defaultState = {
   demoFetchData: null
 };
 
-export default function counter(state = defaultState, action) {
+export default function counter(state = initialState, action) {
   let { type, payload } = action;
   switch (type) {
     /* <Meta Data> */
