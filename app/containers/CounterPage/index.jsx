@@ -13,12 +13,13 @@ import {
   failLoadCounter,
   reqLoadCounter
 } from './actions';
-import { _count, _demoFetchData } from './selectors';
+import { makeCount, makeDemoFetchData, makeIsLoading } from './selectors';
+import { makeIsLoading as makeIsAppLoading } from '../App/selectors';
 import styles from './styles/index.scss';
 
 class Counter extends Component {
   render() {
-    const { count, demoFetchData } = this.props;
+    const { count, demoFetchData, isLoading } = this.props;
     return (
       <div>
         <div className={styles.backButton} data-tid="backButton">
@@ -30,11 +31,7 @@ class Counter extends Component {
           <textarea
             rows="20"
             cols="50"
-            value={
-              demoFetchData
-                ? JSON.stringify(demoFetchData)
-                : `Click Fetch Demo btn`
-            }
+            value={_demoFetchData(demoFetchData, isLoading)}
             readOnly
           />
         </div>
@@ -76,9 +73,7 @@ class Counter extends Component {
           </button>
           <button
             className={styles.btn}
-            onClick={this.props.apiFetchDemoAsyncOnClick.bind(this, {
-              title: `DNA`
-            })}
+            onClick={this.props.apiFetchDemoAsyncOnClick.bind(this, {})}
             data-tclass="btn"
             type="button"
           >
@@ -90,6 +85,16 @@ class Counter extends Component {
   }
 }
 
+const _demoFetchData = (demoFetchData, isLoading) => {
+  let initMsg = `Click Fetch Demo btn`;
+  let loadingMsg = `Loading..`;
+
+  if (isLoading && !demoFetchData) {
+    return loadingMsg;
+  }
+  return demoFetchData ? JSON.stringify(demoFetchData) : initMsg;
+};
+
 const mapDispatchToProps = (dispatch, ownProps) =>
   bindActionCreators(
     {
@@ -100,7 +105,7 @@ const mapDispatchToProps = (dispatch, ownProps) =>
         dispatch(decrementCounter());
       },
       incrementIfOddOnClick: event => (_, getState) => {
-        const { count } = getState().counter;
+        const { count } = getState().Counter;
 
         if (count % 2 === 0) {
           return;
@@ -112,9 +117,16 @@ const mapDispatchToProps = (dispatch, ownProps) =>
           dispatch(incrementCounter());
         }, delay);
       },
-      apiFetchDemoAsyncOnClick: ({ title }, event) => (_, getState) => {
+      apiFetchDemoAsyncOnClick: ({}, event) => (_, getState) => {
+        function _title() {
+          let titleList = ['DNA', 'ANIMAL', 'PLANTS'];
+          let rand = Math.floor(Math.random() * titleList.length);
+          return titleList[rand];
+        }
+
         dispatch(reqLoadCounter());
-        fetchUrl({ title })
+
+        fetchUrl({ url: `http://api.plos.org/search?q=title:${_title()}` })
           .then(res => {
             dispatch(apiFetchDemoCounter(res));
           })
@@ -124,10 +136,12 @@ const mapDispatchToProps = (dispatch, ownProps) =>
     dispatch
   );
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
   return {
-    count: _count(state),
-    demoFetchData: _demoFetchData(state)
+    isAppLoading: makeIsAppLoading(state),
+    isLoading: makeIsLoading(state),
+    count: makeCount(state, props),
+    demoFetchData: makeDemoFetchData(state, props)
   };
 };
 

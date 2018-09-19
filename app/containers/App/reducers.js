@@ -12,7 +12,7 @@ export const initialState = {
   /* </Meta Data> */
 };
 
-export default function app(state = initialState, action) {
+export default function App(state = initialState, action) {
   let { type, payload } = action;
   switch (type) {
     /* <Meta Data> */

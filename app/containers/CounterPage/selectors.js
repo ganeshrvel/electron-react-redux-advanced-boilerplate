@@ -1,9 +1,13 @@
 import { createSelector } from 'reselect';
 
-const _counter = state => state.counter;
+const makeCounter = (state, props) => state.Counter;
 
-export const _count = createSelector(_counter, state => state.count);
-export const _demoFetchData = createSelector(
-  _counter,
+export const makeCount = createSelector(makeCounter, state => state.count);
+export const makeDemoFetchData = createSelector(
+  makeCounter,
   state => state.demoFetchData
+);
+export const makeIsLoading = createSelector(
+  makeCounter,
+  state => state.___isLoading
 );

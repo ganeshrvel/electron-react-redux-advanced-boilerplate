@@ -15,7 +15,7 @@ export const initialState = {
   demoFetchData: null
 };
 
-export default function counter(state = initialState, action) {
+export default function Counter(state = initialState, action) {
   let { type, payload } = action;
   switch (type) {
     /* <Meta Data> */
