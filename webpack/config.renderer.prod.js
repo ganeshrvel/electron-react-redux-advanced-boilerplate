@@ -44,6 +44,7 @@ export default merge.smart(baseConfig, {
           {
             loader: 'css-loader',
             options: {
+              publicPath: './',
               sourceMap: true
             }
           }
@@ -54,11 +55,15 @@ export default merge.smart(baseConfig, {
         test: /^((?!\.global).)*\.css$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: './'
+            }
           },
           {
             loader: 'css-loader',
             options: {
+              publicPath: './',
               modules: true,
               localIdentName: '[name]__[local]__[hash:base64:5]',
               sourceMap: true
@@ -71,11 +76,15 @@ export default merge.smart(baseConfig, {
         test: /\.global\.(scss|sass)$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: './'
+            }
           },
           {
             loader: 'css-loader',
             options: {
+              publicPath: './',
               sourceMap: true,
               importLoaders: 1
             }
@@ -83,6 +92,7 @@ export default merge.smart(baseConfig, {
           {
             loader: 'sass-loader',
             options: {
+              publicPath: './',
               sourceMap: true
             }
           }
@@ -93,11 +103,15 @@ export default merge.smart(baseConfig, {
         test: /^((?!\.global).)*\.(scss|sass)$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: './'
+            }
           },
           {
             loader: 'css-loader',
             options: {
+              publicPath: './',
               modules: true,
               importLoaders: 1,
               localIdentName: '[name]__[local]__[hash:base64:5]',
@@ -107,6 +121,7 @@ export default merge.smart(baseConfig, {
           {
             loader: 'sass-loader',
             options: {
+              publicPath: './',
               sourceMap: true
             }
           }
@@ -119,7 +134,7 @@ export default merge.smart(baseConfig, {
           loader: 'url-loader',
           options: {
             publicPath: './',
-            limit: 10000,//kb
+            limit: 10000, //kb
             mimetype: 'application/font-woff'
           }
         }
