@@ -29,8 +29,8 @@ class Counter extends Component {
             <i className="fa fa-arrow-left fa-3x" />
           </Link>
         </div>
-        <div className={styles.center}>
-          <div className={`counter ${styles.demoFetch}`}>
+        <div className={`${styles.bodyWrapper} ${styles.center}`}>
+          <div className={`counter ${styles.demoFetch} ${styles.center}`}>
             <textarea
               rows="20"
               cols="50"

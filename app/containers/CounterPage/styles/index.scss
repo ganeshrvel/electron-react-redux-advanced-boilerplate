@@ -11,9 +11,13 @@
   font-weight: bold;
 }
 
+.bodyWrapper {
+  text-align: center;
+  max-width: 480px;
+  padding-top: 180px;
+}
+
 .center {
-  max-width: 322px;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 180px;
 }

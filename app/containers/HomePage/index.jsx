@@ -13,7 +13,7 @@ export default class Home extends Component {
         <Link to={routes.Counter.path}>Counter</Link>
         {/*
        
-       //To an image:
+       //To import a local image:
        <img
           src={require('../../public/images/keyboard.jpg')}
           width="100px"
