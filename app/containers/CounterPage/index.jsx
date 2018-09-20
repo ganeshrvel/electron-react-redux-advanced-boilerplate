@@ -4,8 +4,11 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchUrl } from '../../api';
+import { withReducer } from '../../store/reducers/withReducer';
+import reducers from './reducers';
+import styles from './styles/index.scss';
 import { routes } from '../../routing';
+import { fetchUrl } from '../../api';
 import {
   incrementCounter,
   decrementCounter,
@@ -15,7 +18,6 @@ import {
 } from './actions';
 import { makeCount, makeDemoFetchData, makeIsLoading } from './selectors';
 import { makeIsLoading as makeIsAppLoading } from '../App/selectors';
-import styles from './styles/index.scss';
 
 class Counter extends Component {
   render() {
@@ -145,7 +147,9 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Counter);
+export default withReducer('Counter', reducers)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Counter)
+);

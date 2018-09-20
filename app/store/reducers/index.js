@@ -2,13 +2,13 @@
 
 import { combineReducers } from 'redux';
 import { routerReducer as router } from 'react-router-redux';
-import Counter from '../../containers/CounterPage/reducers';
 import App from '../../containers/App/reducers';
 
-const rootReducer = combineReducers({
-  Counter,
-  App,
-  router
-});
+const rootReducer = asyncReducers =>
+  combineReducers({
+    App,
+    router,
+    ...asyncReducers
+  });
 
 export default rootReducer;
