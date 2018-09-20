@@ -25,7 +25,7 @@ export default merge.smart(baseConfig, {
 
   output: {
     path: path.join(PATHS.app, 'dist'),
-    publicPath: '../dist/',
+    publicPath: './dist/',
     filename: 'renderer.prod.js'
   },
 
@@ -118,6 +118,7 @@ export default merge.smart(baseConfig, {
         use: {
           loader: 'url-loader',
           options: {
+            publicPath: './',
             limit: 10000,
             mimetype: 'application/font-woff'
           }
@@ -129,6 +130,7 @@ export default merge.smart(baseConfig, {
         use: {
           loader: 'url-loader',
           options: {
+            publicPath: './',
             limit: 10000,
             mimetype: 'application/font-woff'
           }
@@ -140,6 +142,7 @@ export default merge.smart(baseConfig, {
         use: {
           loader: 'url-loader',
           options: {
+            publicPath: './',
             limit: 10000,
             mimetype: 'application/octet-stream'
           }
@@ -148,7 +151,12 @@ export default merge.smart(baseConfig, {
       // EOT Font
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        use: 'file-loader'
+        use: {
+          loader: 'file-loader',
+          options: {
+            publicPath: './'
+          }
+        }
       },
       // SVG Font
       {
@@ -156,6 +164,7 @@ export default merge.smart(baseConfig, {
         use: {
           loader: 'url-loader',
           options: {
+            publicPath: './',
             limit: 10000,
             mimetype: 'image/svg+xml'
           }
