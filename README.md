@@ -1,5 +1,15 @@
 # Electron-React-Redux advanced boilerplate
 
+License: MIT
+
+Author: [Ganesh Rathinavel](https://www.linkedin.com/in/ganeshrvel "Ganesh Rathinavel")
+
+Requirements: node.js v8 or higher, yarn
+
+Version: 1.0.0
+
+URL: [https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate](https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate "https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate")
+
 ##### Advanced and highly scalable boilerplate built using Electron v3, React v16, Redux v4, Webpack v4 {HMR, Loadables, Dynamic Reducer Injection, Selectors, Code splitting}
 
 ###### Electron.js is an excellent cross-platform framework for creating native applications with web technologies. But there are only a handful of frameworks available online to get going and I found most of them lack advanced features.
@@ -17,6 +27,11 @@
 $ git clone --depth=1 https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate.git
 
 $ cd electron-react-redux-advanced-boilerplate
+```
+
+[Install Yarn package manager](https://yarnpkg.com/lang/en/docs/install/ "Install Yarn package manager")
+
+```shell
 $ yarn
 ```
 
@@ -87,7 +102,7 @@ This boilerplate is a heavily modified fork of [https://github.com/chentsulin/el
  and
  [https://github.com/chentsulin/electron-react-boilerplate/issues/108](https://github.com/chentsulin/electron-react-boilerplate/issues/108 "https://github.com/chentsulin/electron-react-boilerplate/issues/108")
 
-*VM112:2 Uncaught TypeError: Cannot read property 'state' of undefined * error:
+*VM112:2 Uncaught TypeError: Cannot read property 'state' of undefined* error:
 ```shell
 # For Mac and Linux
 $ UPGRADE_EXTENSIONS=1 npm run dev
