@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import Root from './containers/App/Root';
 import { configureStore, history } from './store/configureStore';
-import './styles/app.global.scss';
+import './containers/App/styles/app.global.scss';
 
 const MOUNT_POINT = document.getElementById('root');
 

@@ -1,12 +1,12 @@
 {
-  "name": "squash-archiver",
-  "productName": "Squash Archiver",
-  "version": "0.0.1",
-  "description": "Squash Archiver - Full fledged compressor/decompressor",
+  "name": "electron-react-redux-advanced-boilerplate",
+  "productName": "Electron React Redux advanced boilerplate",
+  "version": "1.0.0",
+  "description": "Electron React Redux advanced and scalable boilerplate | Electron v3, React v16, Webpack v4, code splitting, loadables, dynamic reducers",
   "main": "./main.prod.js",
   "author": {
     "name": "Ganesh Rathinavel",
-    "email": "ganeshrvel@hotmail.com",
+    "email": "ganeshrvel@outlook.com",
     "url": "https://github.com/ganeshrvel"
   },
   "scripts": {

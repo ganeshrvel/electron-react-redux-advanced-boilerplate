@@ -1,8 +1,8 @@
 {
-  "name": "squash-archiver",
-  "productName": "Squash Archiver",
-  "version": "0.0.1",
-  "description": "Squash Archiver - Full fledged compressor/decompressor",
+  "name": "electron-react-redux-advanced-boilerplate",
+  "productName": "Electron React Redux advanced boilerplate",
+  "version": "1.0.0",
+  "description": "Electron React Redux advanced and scalable boilerplate | Electron v3, React v16, Webpack v4, code splitting, loadables, dynamic reducers",
   "scripts": {
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
     "build-dll": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack/config.renderer.dev.dll.js --colors",
@@ -22,8 +22,8 @@
   },
   "browserslist": "electron 3.0",
   "build": {
-    "productName": "Squash Archiver",
-    "appId": "io.ganeshrvel.squash-archiver",
+    "productName": "Electron React Redux advanced boilerplate",
+    "appId": "io.ganeshrvel.electron-react-redux-advanced-boilerplate",
     "files": [
       "dist/",
       "node_modules/",
@@ -65,28 +65,28 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ganeshrvel/squash-archiver.git"
+    "url": "git+https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate.git"
   },
   "author": {
     "name": "Ganesh Rathinavel",
-    "email": "ganeshrvel@hotmail.com",
+    "email": "ganeshrvel@outlook.com",
     "url": "https://github.com/ganeshrvel"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ganeshrvel/squash-archiver/issues"
+    "url": "https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate/issues"
   },
   "keywords": [
-    "squash-archiver",
-    "compress",
-    "decompress",
-    "uncompress",
-    "zip",
-    "unzip",
-    "rar",
-    "unrar"
+    "electron-react-redux-advanced-boilerplate",
+    "electron",
+    "react",
+    "redux",
+    "boilerplate",
+    "loadables",
+    "dynamic reducers",
+    "code splitting"
   ],
-  "homepage": "https://github.com/ganeshrvel/squash-archiver#readme",
+  "homepage": "https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",

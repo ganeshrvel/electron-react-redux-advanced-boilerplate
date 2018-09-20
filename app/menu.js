@@ -44,17 +44,17 @@ export default class MenuBuilder {
 
   buildDarwinTemplate() {
     const subMenuAbout = {
-      label: 'Squash Archiver',
+      label: 'Electron React Redux advanced boilerplate',
       submenu: [
         {
-          label: 'About Squash Archiver',
+          label: 'About the boilerplate',
           selector: 'orderFrontStandardAboutPanel:'
         },
         { type: 'separator' },
         { label: 'Services', submenu: [] },
         { type: 'separator' },
         {
-          label: 'Hide Squash Archiver',
+          label: 'Hide the boilerplate',
           accelerator: 'Command+H',
           selector: 'hide:'
         },

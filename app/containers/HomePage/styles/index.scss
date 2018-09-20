@@ -1,15 +1,15 @@
 .container {
   position: absolute;
-  top: 30%;
+  top: 10%;
   left: 10px;
-  text-align: center;
-  //background-image: url('../../../public/images/keyboard.jpg'); //Importing an image
-}
+  //background-image: url('../../../public/images/keyboard.jpg'); //To set a bg image url
 
-.container h2 {
-  font-size: 5rem;
-}
+  h2 {
+    font-size: 5rem;
+  }
 
-.container a {
-  font-size: 1.4rem;
+  a {
+    font-size: 17px;
+    text-decoration: underline;
+  }
 }

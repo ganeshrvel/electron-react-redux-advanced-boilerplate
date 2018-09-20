@@ -29,58 +29,35 @@ class Counter extends Component {
             <i className="fa fa-arrow-left fa-3x" />
           </Link>
         </div>
-        <div className={`counter ${styles.demoFetch}`}>
-          <textarea
-            rows="20"
-            cols="50"
-            value={_demoFetchData(demoFetchData, isLoading)}
-            readOnly
-          />
-        </div>
-        <div className={`counter ${styles.counter}`} data-tid="counter">
-          {count}
-        </div>
-        <div className={styles.btnGroup}>
-          <button
-            className={styles.btn}
-            onClick={this.props.incrementOnClick}
-            data-tclass="btn"
-            type="button"
-          >
-            <i className="fa fa-plus" />
-          </button>
-          <button
-            className={styles.btn}
-            onClick={this.props.decrementOnClick}
-            data-tclass="btn"
-            type="button"
-          >
-            <i className="fa fa-minus" />
-          </button>
-          <button
-            className={styles.btn}
-            onClick={this.props.incrementIfOddOnClick}
-            data-tclass="btn"
-            type="button"
-          >
-            odd
-          </button>
-          <button
-            className={styles.btn}
-            onClick={this.props.incrementAsyncOnClick.bind(this, 1000)}
-            data-tclass="btn"
-            type="button"
-          >
-            async
-          </button>
-          <button
-            className={styles.btn}
-            onClick={this.props.apiFetchDemoAsyncOnClick.bind(this, {})}
-            data-tclass="btn"
-            type="button"
-          >
-            Fetch Demo
-          </button>
+        <div className={styles.center}>
+          <div className={`counter ${styles.demoFetch}`}>
+            <textarea
+              rows="20"
+              cols="50"
+              value={_demoFetchData(demoFetchData, isLoading)}
+              readOnly
+            />
+          </div>
+          <div className={`counter ${styles.counter}`} data-tid="counter">
+            {count}
+          </div>
+          <div>
+            <button onClick={this.props.incrementOnClick}>
+              <i className="fa fa-plus" />
+            </button>
+            <button onClick={this.props.decrementOnClick}>
+              <i className="fa fa-minus" />
+            </button>
+            <button onClick={this.props.incrementIfOddOnClick}>odd</button>
+            <button onClick={this.props.incrementAsyncOnClick.bind(this, 1000)}>
+              Async
+            </button>
+            <button
+              onClick={this.props.apiFetchDemoAsyncOnClick.bind(this, {})}
+            >
+              Fetch Demo
+            </button>
+          </div>
         </div>
       </div>
     );

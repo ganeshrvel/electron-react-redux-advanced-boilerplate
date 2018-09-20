@@ -8,12 +8,12 @@ import { routes } from '../../routing';
 export default class Home extends Component {
   render() {
     return (
-      <div className={styles.container} data-tid="container">
-        <h2>Home</h2>
-        <Link to={routes.Counter.path}>to Counter</Link>
+      <div className={styles.container}>
+        <h3>Electron React Redux advanced and scalable boilerplate</h3>
+        <Link to={routes.Counter.path}>Counter</Link>
         {/*
        
-       //Importing an image
+       //To an image:
        <img
           src={require('../../public/images/keyboard.jpg')}
           width="100px"
