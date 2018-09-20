@@ -119,7 +119,7 @@ export default merge.smart(baseConfig, {
           loader: 'url-loader',
           options: {
             publicPath: './',
-            limit: 10000,
+            limit: 10000,//kb
             mimetype: 'application/font-woff'
           }
         }
@@ -172,8 +172,16 @@ export default merge.smart(baseConfig, {
       },
       // Common Image Formats
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
-        use: 'url-loader'
+        test: /\.(?:ico|jpe?g|png|gif|webp)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: 'images/[path][name].[hash].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
