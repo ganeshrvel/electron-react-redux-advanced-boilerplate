@@ -19,7 +19,7 @@ export default merge.smart(baseConfig, {
   devtool: 'source-map',
   mode: 'production',
   target: 'electron-main',
-  entry: './app/main.dev',
+  entry: ['@babel/polyfill', './app/main.dev'],
 
   output: {
     path: PATHS.root,

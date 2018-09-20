@@ -21,7 +21,7 @@ export default merge.smart(baseConfig, {
   devtool: 'source-map',
   mode: 'production',
   target: 'electron-renderer',
-  entry: './app/index.js',
+  entry: ['@babel/polyfill', './app/index.js'],
 
   output: {
     path: path.join(PATHS.app, 'dist'),
