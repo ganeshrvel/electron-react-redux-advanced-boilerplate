@@ -7,23 +7,25 @@ import HomePage from '../containers/HomePage/Loadable';
 import CounterPage from '../containers/CounterPage/Loadable';
 import NotFoundPage from '../containers/NotFoundPage/Loadable';
 
-export const routes = {
+const _routes = {
   Home: {
     path: '/',
-    exact: true
+    exact: true,
+    component: HomePage
   },
   Counter: {
     path: '/counter',
-    exact: true
+    exact: true,
+    component: CounterPage
   },
-  NotFound: {}
+  NotFound: {
+    component: NotFoundPage
+  }
 };
 
-const routeComponents = {
-  Home: HomePage,
-  Counter: CounterPage,
-  NotFound: NotFoundPage
-};
+export const routes = JSON.parse(
+  JSON.stringify(_routes, (k, v) => (k === 'component' ? undefined : v))
+);
 
 export default () => {
   return (
@@ -33,7 +35,7 @@ export default () => {
           <Route
             key={routes[a].path || 'notfound'}
             {...routes[a]}
-            component={routeComponents[a]}
+            component={_routes[a].component}
           />
         ))}
       </Switch>
