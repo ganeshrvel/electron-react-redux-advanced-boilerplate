@@ -44,7 +44,7 @@ export default class MenuBuilder {
 
   buildDarwinTemplate() {
     const subMenuAbout = {
-      label: 'Electron React Redux advanced boilerplate',
+      label: 'Electron-React-Redux advanced boilerplate',
       submenu: [
         {
           label: 'About the boilerplate',

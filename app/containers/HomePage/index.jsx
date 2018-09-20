@@ -9,7 +9,7 @@ export default class Home extends Component {
   render() {
     return (
       <div className={styles.container}>
-        <h3>Electron React Redux advanced and scalable boilerplate</h3>
+        <h3>Electron-React-Redux advanced and scalable boilerplate</h3>
         <Link to={routes.Counter.path}>Counter</Link>
         {/*
        

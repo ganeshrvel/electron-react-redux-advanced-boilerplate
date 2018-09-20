@@ -1,8 +1,8 @@
 {
   "name": "electron-react-redux-advanced-boilerplate",
-  "productName": "Electron React Redux advanced boilerplate",
+  "productName": "Electron-React-Redux advanced boilerplate",
   "version": "1.0.0",
-  "description": "Electron React Redux advanced and scalable boilerplate | Electron v3, React v16, Webpack v4, code splitting, loadables, dynamic reducers",
+  "description": "Advanced and highly scalable boilerplate built using Electron v3, React v16, Redux v4, Webpack v4 {HMR, Loadables, Dynamic Reducer Injection, Selectors, Code splitting}",
   "main": "./main.prod.js",
   "author": {
     "name": "Ganesh Rathinavel",
