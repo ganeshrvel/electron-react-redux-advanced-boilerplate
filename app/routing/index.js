@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router';
-import App from '../containers/App';
-import HomePage from '../containers/HomePage';
-import CounterPage from '../containers/CounterPage';
-import NotFoundPage from '../containers/NotFoundPage';
+import App from '../containers/App/Loadable';
+import HomePage from '../containers/HomePage/Loadable';
+import CounterPage from '../containers/CounterPage/Loadable';
+import NotFoundPage from '../containers/NotFoundPage/Loadable';
 
 export const routes = {
   Home: {
