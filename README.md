@@ -115,7 +115,9 @@ And place the image file inside the *./app/public/images* folder
  
 - **[Debugging Guide](https://github.com/chentsulin/electron-react-boilerplate/issues/400 "Debugging Guide")**
 -  Dispatching redux actions from main process:
+
  [https://github.com/chentsulin/electron-react-boilerplate/issues/118](https://github.com/chentsulin/electron-react-boilerplate/issues/118 "https://github.com/chentsulin/electron-react-boilerplate/issues/118")
+ 
  [https://github.com/chentsulin/electron-react-boilerplate/issues/108](https://github.com/chentsulin/electron-react-boilerplate/issues/108 "https://github.com/chentsulin/electron-react-boilerplate/issues/108")
 
 - *VM112:2 Uncaught TypeError: Cannot read property 'state' of undefined* error:
