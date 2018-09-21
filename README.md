@@ -96,6 +96,7 @@ And place the image file inside the *./app/public/images* folder
 > Otherwise, modules used for building, testing and debugging should be included in devDependencies in ./package.json.
 
 ### Changelog
+**v1.0.1**
 - Added Helmet redux for better meta info management
 - New method to handle local image imports
 - Replaced react-loadable with react-hot-loader to fix HMR issue
@@ -112,14 +113,13 @@ And place the image file inside the *./app/public/images* folder
  
  ### Debugging
  
-**[Debugging Guide](https://github.com/chentsulin/electron-react-boilerplate/issues/400 "Debugging Guide")**
- 
- Dispatching redux actions from main process:
+- **[Debugging Guide](https://github.com/chentsulin/electron-react-boilerplate/issues/400 "Debugging Guide")**
+-  Dispatching redux actions from main process:
  - [https://github.com/chentsulin/electron-react-boilerplate/issues/118](https://github.com/chentsulin/electron-react-boilerplate/issues/118 "https://github.com/chentsulin/electron-react-boilerplate/issues/118")
- 
  - [https://github.com/chentsulin/electron-react-boilerplate/issues/108](https://github.com/chentsulin/electron-react-boilerplate/issues/108 "https://github.com/chentsulin/electron-react-boilerplate/issues/108")
 
-*VM112:2 Uncaught TypeError: Cannot read property 'state' of undefined* error:
+- *VM112:2 Uncaught TypeError: Cannot read property 'state' of undefined* error:
+
 ```shell
 # For Mac and Linux
 $ UPGRADE_EXTENSIONS=1 npm run dev
