@@ -1,6 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -8,6 +9,7 @@ import { withReducer } from '../../store/reducers/withReducer';
 import reducers from './reducers';
 import styles from './styles/index.scss';
 import { routes } from '../../routing';
+import { title } from '../../utils/meta';
 import { fetchUrl } from '../../api';
 import {
   incrementCounter,
@@ -23,43 +25,44 @@ class Counter extends Component {
   render() {
     const { count, demoFetchData, isLoading } = this.props;
     return (
-      <div>
-        <div className={styles.backButton} data-tid="backButton">
-          <Link to={routes.Home.path}>
-            <i className="fa fa-arrow-left fa-3x" />
-          </Link>
+      <React.Fragment>
+        <Helmet titleTemplate={`%s | ${title}`}>
+          <title>Counter</title>
+        </Helmet>
+        <div>
+          <div className={styles.backButton} data-tid="backButton">
+            <Link to={routes.Home.path}>Back to home</Link>
+          </div>
+          <div className={`${styles.bodyWrapper} ${styles.center}`}>
+            <div className={`counter ${styles.demoFetch} ${styles.center}`}>
+              <textarea
+                rows="20"
+                cols="50"
+                value={_demoFetchData(demoFetchData, isLoading)}
+                readOnly
+              />
+            </div>
+            <div className={`counter ${styles.counter}`} data-tid="counter">
+              {count}
+            </div>
+            <div>
+              <button onClick={this.props.incrementOnClick}>+</button>
+              <button onClick={this.props.decrementOnClick}>-</button>
+              <button onClick={this.props.incrementIfOddOnClick}>odd</button>
+              <button
+                onClick={this.props.incrementAsyncOnClick.bind(this, 1000)}
+              >
+                Async
+              </button>
+              <button
+                onClick={this.props.apiFetchDemoAsyncOnClick.bind(this, {})}
+              >
+                Fetch Demo
+              </button>
+            </div>
+          </div>
         </div>
-        <div className={`${styles.bodyWrapper} ${styles.center}`}>
-          <div className={`counter ${styles.demoFetch} ${styles.center}`}>
-            <textarea
-              rows="20"
-              cols="50"
-              value={_demoFetchData(demoFetchData, isLoading)}
-              readOnly
-            />
-          </div>
-          <div className={`counter ${styles.counter}`} data-tid="counter">
-            {count}
-          </div>
-          <div>
-            <button onClick={this.props.incrementOnClick}>
-              <i className="fa fa-plus" />
-            </button>
-            <button onClick={this.props.decrementOnClick}>
-              <i className="fa fa-minus" />
-            </button>
-            <button onClick={this.props.incrementIfOddOnClick}>odd</button>
-            <button onClick={this.props.incrementAsyncOnClick.bind(this, 1000)}>
-              Async
-            </button>
-            <button
-              onClick={this.props.apiFetchDemoAsyncOnClick.bind(this, {})}
-            >
-              Fetch Demo
-            </button>
-          </div>
-        </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

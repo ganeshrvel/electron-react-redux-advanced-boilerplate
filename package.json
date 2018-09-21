@@ -1,7 +1,7 @@
 {
   "name": "electron-react-redux-advanced-boilerplate",
   "productName": "Electron-React-Redux advanced boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Advanced and highly scalable boilerplate built using Electron v3, React v16, Redux v4, Webpack v4 {HMR, Loadables, Dynamic Reducer Injection, Selectors, Code splitting}",
   "scripts": {
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
@@ -100,6 +100,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
     "chalk": "^2.4.1",
+    "clean-webpack-plugin": "^0.1.19",
     "concurrently": "^3.6.1",
     "cross-env": "^5.2.0",
     "cross-spawn": "^6.0.5",
@@ -146,8 +147,9 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-helmet": "^5.2.0",
     "react-hot-loader": "^4.3.4",
-    "react-loadable": "^5.5.0",
+    "react-imported-component": "^4.6.2",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",

@@ -1,8 +1,8 @@
 'use strict';
-import Loadable from 'react-loadable';
+
+import Loadable from 'react-imported-component';
 import LoadingIndicator from '../../components/LoadingIndicator';
 
-export default Loadable({
-  loader: () => import('./index'),
-  loading: LoadingIndicator
+export default Loadable(() => import('./index'), {
+  LoadingComponent: LoadingIndicator
 });

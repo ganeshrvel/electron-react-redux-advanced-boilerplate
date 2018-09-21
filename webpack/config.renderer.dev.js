@@ -221,7 +221,7 @@ export default merge.smart(baseConfig, {
         }),
 
     new webpack.HotModuleReplacementPlugin({
-      multiStep: true
+      multiStep: false
     }),
 
     new webpack.NoEmitOnErrorsPlugin(),
@@ -249,7 +249,8 @@ export default merge.smart(baseConfig, {
 
   node: {
     __dirname: false,
-    __filename: false
+    __filename: false,
+    fs: 'empty'
   },
 
   devServer: {

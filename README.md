@@ -6,17 +6,18 @@ Author: [Ganesh Rathinavel](https://www.linkedin.com/in/ganeshrvel "Ganesh Rathi
 
 Requirements: node.js v8 or higher, yarn
 
-Version: 1.0.0
+Version: 1.0.1
 
 URL: [https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate](https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate "https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate")
 
-##### Advanced and highly scalable boilerplate built using Electron v3, React v16, Redux v4, Webpack v4 {HMR, Loadables, Dynamic Reducer Injection, Selectors, Code splitting}
+##### Advanced and highly scalable boilerplate built using Electron v3, React v16, Redux v4, Webpack v4 {HMR, Helmet, Loadables, Dynamic Reducer Injection, Selectors, Code splitting}
 
-###### Electron.js is an excellent cross-platform framework for creating native applications with web technologies. But there are only a handful of frameworks available online to get going and I found most of them lack advanced features.
+###### Electron.js is an excellent framework for creating cross-platform native applications using HTML/CSS/JS. But there are only a handful of frameworks available online to get going and I found most of them lack advanced features.
 
 ### Features
 - Latest versions of Electron (beta v3 .10), React (v16), Redux (v4), Webpack (v4)
 - Hot module Reload (HMR) for instant feedback.
+- Helmet for better meta info management.
 - Highly modular.
 - Loadables, Dynamic Reducer Injection, Selectors for efficient Code. splitting and performance/startup optimisation.
 - Industry standard State management.
@@ -70,11 +71,17 @@ $ yarn package-all
 To use a local image inside the app use require('../path/file.jpg');
 ```javascript
 // Example
-<img
-          src={require('../../public/images/keyboard.jpg')}
-          width="100px"
-          height="auto"
-        />
+ <img
+            src={imgsrc('keyboard.jpg')}
+            width="100px"
+            height="auto"
+          />
+ /*
+ imgsrc
+ * default path: ../public/images/
+ * @param filePath
+ * @param returnNoImageFound (optional)
+ */
 ```
 And place the image file inside the *./app/public/images* folder
 
@@ -88,19 +95,29 @@ And place the image file inside the *./app/public/images* folder
 
 > Otherwise, modules used for building, testing and debugging should be included in devDependencies in ./package.json.
 
-### Accolades and Credits
-This boilerplate is a heavily modified fork of [https://github.com/chentsulin/electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate "https://github.com/chentsulin/electron-react-boilerplate")
+### Changelog
+- Added Helmet redux for better meta info management
+- New method to handle local image imports
+- Replaced react-loadable with react-hot-loader to fix HMR issue
+- Added CleanWebpackPlugin
+- Other improvements, fixes and optimisations
 
- App Icon made by prettycons from www.flaticon.com
+### Accolades and Credits
+- This boilerplate is a heavily modified fork of [https://github.com/chentsulin/electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate "https://github.com/chentsulin/electron-react-boilerplate")
+
+
+ - App Icon made by prettycons from [www.flaticon.com](http://www.flaticon.com "www.flaticon.com")
+ 
+- No image icon made by Phonlaphat Thongsriphong from [https://www.iconfinder.com/phatpc](https://www.iconfinder.com/phatpc "https://www.iconfinder.com/phatpc")
  
  ### Debugging
  
 **[Debugging Guide](https://github.com/chentsulin/electron-react-boilerplate/issues/400 "Debugging Guide")**
  
  Dispatching redux actions from main process:
- [https://github.com/chentsulin/electron-react-boilerplate/issues/118](https://github.com/chentsulin/electron-react-boilerplate/issues/118 "https://github.com/chentsulin/electron-react-boilerplate/issues/118")
- and
- [https://github.com/chentsulin/electron-react-boilerplate/issues/108](https://github.com/chentsulin/electron-react-boilerplate/issues/108 "https://github.com/chentsulin/electron-react-boilerplate/issues/108")
+ - [https://github.com/chentsulin/electron-react-boilerplate/issues/118](https://github.com/chentsulin/electron-react-boilerplate/issues/118 "https://github.com/chentsulin/electron-react-boilerplate/issues/118")
+ 
+ - [https://github.com/chentsulin/electron-react-boilerplate/issues/108](https://github.com/chentsulin/electron-react-boilerplate/issues/108 "https://github.com/chentsulin/electron-react-boilerplate/issues/108")
 
 *VM112:2 Uncaught TypeError: Cannot read property 'state' of undefined* error:
 ```shell

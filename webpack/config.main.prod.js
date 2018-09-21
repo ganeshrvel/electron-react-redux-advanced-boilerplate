@@ -11,6 +11,7 @@ import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import baseConfig from './config.base';
 import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 import { PATHS } from '../app/utils/paths';
 
 CheckNodeEnv('production');
@@ -19,7 +20,9 @@ export default merge.smart(baseConfig, {
   devtool: 'source-map',
   mode: 'production',
   target: 'electron-main',
-  entry: ['@babel/polyfill', './app/main.dev'],
+  entry: {
+    client: ['@babel/polyfill', './app/main.dev']
+  },
 
   output: {
     path: PATHS.root,
@@ -37,6 +40,9 @@ export default merge.smart(baseConfig, {
   },
 
   plugins: [
+    new CleanWebpackPlugin([`${PATHS.dist}/*`], {
+      root: PATHS.root
+    }),
     new BundleAnalyzerPlugin({
       analyzerMode:
         process.env.OPEN_ANALYZER === 'true' ? 'server' : 'disabled',
@@ -66,6 +72,7 @@ export default merge.smart(baseConfig, {
    */
   node: {
     __dirname: false,
-    __filename: false
+    __filename: false,
+    fs: 'empty'
   }
 });

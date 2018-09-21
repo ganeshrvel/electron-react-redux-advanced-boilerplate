@@ -1,7 +1,7 @@
 {
   "name": "electron-react-redux-advanced-boilerplate",
   "productName": "Electron-React-Redux advanced boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Advanced and highly scalable boilerplate built using Electron v3, React v16, Redux v4, Webpack v4 {HMR, Loadables, Dynamic Reducer Injection, Selectors, Code splitting}",
   "main": "./main.prod.js",
   "author": {
