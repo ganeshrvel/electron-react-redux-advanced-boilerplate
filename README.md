@@ -111,16 +111,22 @@ And place the image file inside the *./app/public/images* folder
  
 - No image icon made by Phonlaphat Thongsriphong from [https://www.iconfinder.com/phatpc](https://www.iconfinder.com/phatpc "https://www.iconfinder.com/phatpc")
  
- ### Debugging
+### Debugging
  
-- **[Debugging Guide](https://github.com/chentsulin/electron-react-boilerplate/issues/400 "Debugging Guide")**
--  Dispatching redux actions from main process:
+#####[Debugging Guide](https://github.com/chentsulin/electron-react-boilerplate/issues/400 "Debugging Guide")
 
->  [https://github.com/chentsulin/electron-react-boilerplate/issues/118](https://github.com/chentsulin/electron-react-boilerplate/issues/118 "https://github.com/chentsulin/electron-react-boilerplate/issues/118")
- 
->  [https://github.com/chentsulin/electron-react-boilerplate/issues/108](https://github.com/chentsulin/electron-react-boilerplate/issues/108 "https://github.com/chentsulin/electron-react-boilerplate/issues/108")
+------------
 
-- *VM112:2 Uncaught TypeError: Cannot read property 'state' of undefined* error:
+
+Dispatching redux actions from main process:
+[https://github.com/chentsulin/electron-react-boilerplate/issues/118](https://github.com/chentsulin/electron-react-boilerplate/issues/118 "https://github.com/chentsulin/electron-react-boilerplate/issues/118")
+
+[https://github.com/chentsulin/electron-react-boilerplate/issues/108](https://github.com/chentsulin/electron-react-boilerplate/issues/108 "https://github.com/chentsulin/electron-react-boilerplate/issues/108")
+
+------------
+
+
+*VM112:2 Uncaught TypeError: Cannot read property 'state' of undefined* error:
 
 ```shell
 # For Mac and Linux
