@@ -1,7 +1,7 @@
 # Electron-React-Redux Advanced Boilerplate
 
 - Author: [Ganesh Rathinavel](https://www.linkedin.com/in/ganeshrvel "Ganesh Rathinavel")
-- License: [MIT](https://github.com/ganeshrvel/openmtp/blob/master/LICENSE "MIT")
+- License: [MIT](https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate/blob/master/LICENSE "MIT")
 - Repo URL: [https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate](https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate "https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate")
 - Contacts: ganeshrvel@outlook.com
 - Requirements: Node.js v10 or higher, yarn
