@@ -148,7 +148,7 @@ $ set UPGRADE_EXTENSIONS=1 && npm run dev
 
 ### More repos
 - [OpenMTP  - Advanced Android File Transfer Application for macOS](https://github.com/ganeshrvel/openmtp "OpenMTP  - Advanced Android File Transfer Application for macOS")
-- [Get the root path of an Electron Application](https://github.com/ganeshrvel/npm-electron-root-path "Get the root path of an Electron Application")
+- [electron-root-path](https://github.com/ganeshrvel/npm-electron-root-path "Get the root path of an Electron Application")
 
 ### Accolades and Credits
 - This boilerplate is a heavily modified fork of [https://github.com/chentsulin/electron-react-boilerplate](https://github.com/chentsulin/electron-react-boilerplate "https://github.com/chentsulin/electron-react-boilerplate")

@@ -53,16 +53,16 @@ Include as many relevant details about the environment you experienced the bug i
 - Node version :
 - Version or Branch used :
 - Operating System and version [e.g. macOS 10.14 mojave]:
-- App Version [e.g. Electron-React-Redux Advanced Boilerplate-v1.0]:
+- App Version [e.g. Electron-React-Redux-Advanced-Boilerplate-v1.0]:
 - Link to your project :
 
 **Attachments**
 Include if relevant,
 1. Open your Terminal and run the following code:
 ```shell
-zip -r -X ~/Desktop/Electron-React-Redux Advanced Boilerplate-log.zip ~/.io.ganeshrvel/electron-react-redux-advanced-boilerplate/logs/
+zip -r -X ~/Desktop/Electron-React-Redux-Advanced-Boilerplate-log.zip ~/.io.ganeshrvel/electron-react-redux-advanced-boilerplate/logs/
 ```
-2. Attach the file *Electron-React-Redux Advanced Boilerplate-log.zip* found in your Desktop folder here.
+2. Attach the file *Electron-React-Redux-Advanced-Boilerplate-log.zip* found in your Desktop folder here.
 
 Or
 
