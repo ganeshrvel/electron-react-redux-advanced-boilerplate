@@ -76,9 +76,12 @@ $ yarn package
 $ yarn package-all
 ```
 
-### Configuration
-Update *config/dev-app-update.yml*  and *config/google-analytics-key.js*.
-Ports are assigned in *config/env*
+### Configurations
+- *config/env/env.dev.js* and *config/env/env.prod.js* contain the PORT number of the app.
+- *config/dev-app-update.yml* file holds the GitHub repo variables required by *electron-updater*.
+- *config/google-analytics-key.js* file contains the Google Analytics Tracking ID.
+- *package.json* **build.publish** object holds the values for publishing the packaged application.
+- *app/constants* folder contains all the constants required by the app.
 
 ### General Information
 - Port assigned: **3642**
