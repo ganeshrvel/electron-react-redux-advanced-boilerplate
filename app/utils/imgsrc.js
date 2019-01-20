@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint global-require: off, prefer-template: off */
+
 /**
  * handle image import into the program.
  * default path: ../public/images/

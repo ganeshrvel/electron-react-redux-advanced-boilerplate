@@ -1,17 +1,22 @@
 'use strict';
 
-import { app, Menu, shell, BrowserWindow } from 'electron';
+import { app, Menu } from 'electron';
+import { privacyPolicyWindow, reportBugsWindow } from './utils/createWindows';
+import { DEBUG_PROD, IS_DEV } from './constants/env';
+import { APP_NAME, APP_GITHUB_URL } from './constants/meta';
+import { openExternalUrl } from './utils/url';
+import { DONATE_PAYPAL_URL } from './constants';
+import { inviteViaEmail } from './templates/menu';
 
 export default class MenuBuilder {
-  constructor(mainWindow) {
+  constructor({ mainWindow, autoAppUpdate, appUpdaterEnable }) {
     this.mainWindow = mainWindow;
+    this.autoAppUpdate = autoAppUpdate;
+    this.appUpdaterEnable = appUpdaterEnable;
   }
 
   buildMenu() {
-    if (
-      process.env.NODE_ENV === 'development' ||
-      process.env.DEBUG_PROD === 'true'
-    ) {
+    if (IS_DEV || DEBUG_PROD) {
       this.setupDevelopmentEnvironment();
     }
 
@@ -27,7 +32,6 @@ export default class MenuBuilder {
   }
 
   setupDevelopmentEnvironment() {
-    this.mainWindow.openDevTools();
     this.mainWindow.webContents.on('context-menu', (e, props) => {
       const { x, y } = props;
 
@@ -40,21 +44,29 @@ export default class MenuBuilder {
         }
       ]).popup(this.mainWindow);
     });
+
+    this.mainWindow.openDevTools();
   }
 
   buildDarwinTemplate() {
     const subMenuAbout = {
-      label: 'Electron-React-Redux advanced boilerplate',
+      label: `${APP_NAME}`,
       submenu: [
         {
-          label: 'About the boilerplate',
+          label: `About ${APP_NAME}`,
           selector: 'orderFrontStandardAboutPanel:'
         },
         { type: 'separator' },
-        { label: 'Services', submenu: [] },
+        {
+          visible: this.appUpdaterEnable,
+          label: 'Check For Updates',
+          click: () => {
+            this.autoAppUpdate.forceCheck();
+          }
+        },
         { type: 'separator' },
         {
-          label: 'Hide the boilerplate',
+          label: `Hide ${APP_NAME}`,
           accelerator: 'Command+H',
           selector: 'hide:'
         },
@@ -77,16 +89,42 @@ export default class MenuBuilder {
     const subMenuEdit = {
       label: 'Edit',
       submenu: [
-        { label: 'Undo', accelerator: 'Command+Z', selector: 'undo:' },
-        { label: 'Redo', accelerator: 'Shift+Command+Z', selector: 'redo:' },
+        {
+          label: 'Undo',
+          accelerator: 'Command+Z',
+          selector: 'undo:',
+          role: 'undo'
+        },
+        {
+          label: 'Redo',
+          accelerator: 'Command+Y',
+          selector: 'redo:',
+          role: 'redo'
+        },
         { type: 'separator' },
-        { label: 'Cut', accelerator: 'Command+X', selector: 'cut:' },
-        { label: 'Copy', accelerator: 'Command+C', selector: 'copy:' },
-        { label: 'Paste', accelerator: 'Command+V', selector: 'paste:' },
+        {
+          label: 'Cut',
+          accelerator: 'Command+X',
+          selector: 'cut:',
+          role: 'cut'
+        },
+        {
+          label: 'Copy',
+          accelerator: 'Command+C',
+          selector: 'copy:',
+          role: 'copy'
+        },
+        {
+          label: 'Paste',
+          accelerator: 'Command+V',
+          selector: 'paste:',
+          role: 'paste'
+        },
         {
           label: 'Select All',
           accelerator: 'Command+A',
-          selector: 'selectAll:'
+          selector: 'selectAll:',
+          role: 'selectAll'
         }
       ]
     };
@@ -138,36 +176,40 @@ export default class MenuBuilder {
         },
         { label: 'Close', accelerator: 'Command+W', selector: 'performClose:' },
         { type: 'separator' },
-        { label: 'Bring All to Front', selector: 'arrangeInFront:' }
+        { label: 'Bring All To Front', selector: 'arrangeInFront:' }
       ]
     };
     const subMenuHelp = {
       label: 'Help',
       submenu: [
         {
-          label: 'Learn More',
-          click() {
-            shell.openExternal('http://electron.atom.io');
+          label: 'Report Bugs',
+          click: () => {
+            reportBugsWindow();
           }
         },
         {
-          label: 'Documentation',
-          click() {
-            shell.openExternal(
-              'https://github.com/atom/electron/tree/master/docs#readme'
-            );
+          label: 'Privacy Policy',
+          click: () => {
+            privacyPolicyWindow();
           }
         },
         {
-          label: 'Community Discussions',
-          click() {
-            shell.openExternal('https://discuss.atom.io/c/electron');
+          label: 'Buy me a coffee!',
+          click: () => {
+            openExternalUrl(DONATE_PAYPAL_URL);
           }
         },
         {
-          label: 'Search Issues',
-          click() {
-            shell.openExternal('https://github.com/atom/electron/issues');
+          label: `Invite a friend`,
+          click: () => {
+            openExternalUrl(`${inviteViaEmail}`);
+          }
+        },
+        {
+          label: 'Find us on GitHub',
+          click: () => {
+            openExternalUrl(APP_GITHUB_URL);
           }
         }
       ]
@@ -180,7 +222,7 @@ export default class MenuBuilder {
   }
 
   buildDefaultTemplate() {
-    const templateDefault = [
+    return [
       {
         label: '&File',
         submenu: [
@@ -242,35 +284,44 @@ export default class MenuBuilder {
         label: 'Help',
         submenu: [
           {
-            label: 'Learn More',
-            click() {
-              shell.openExternal('http://electron.atom.io');
+            visible: this.appUpdaterEnable,
+            label: 'Check For Updates',
+            click: () => {
+              this.autoAppUpdate.forceCheck();
             }
           },
           {
-            label: 'Documentation',
-            click() {
-              shell.openExternal(
-                'https://github.com/atom/electron/tree/master/docs#readme'
-              );
+            label: 'Report Bugs',
+            click: () => {
+              reportBugsWindow();
             }
           },
           {
-            label: 'Community Discussions',
-            click() {
-              shell.openExternal('https://discuss.atom.io/c/electron');
+            label: 'Privacy Policy',
+            click: () => {
+              privacyPolicyWindow();
             }
           },
           {
-            label: 'Search Issues',
-            click() {
-              shell.openExternal('https://github.com/atom/electron/issues');
+            label: 'Buy me a coffee!',
+            click: () => {
+              openExternalUrl(DONATE_PAYPAL_URL);
+            }
+          },
+          {
+            label: `Invite a friend`,
+            click: () => {
+              openExternalUrl(`${inviteViaEmail}`);
+            }
+          },
+          {
+            label: 'Find us on GitHub',
+            click: () => {
+              openExternalUrl(APP_GITHUB_URL);
             }
           }
         ]
       }
     ];
-
-    return templateDefault;
   }
 }

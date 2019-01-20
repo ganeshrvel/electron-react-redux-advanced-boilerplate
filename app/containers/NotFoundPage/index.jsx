@@ -2,21 +2,21 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { routes } from '../../routing';
 import styles from './styles/index.scss';
-import { Helmet } from 'react-helmet';
-import { title } from '../../utils/meta';
+import { APP_TITLE } from '../../constants/meta';
 
 export default class NotFound extends Component {
   render() {
     return (
       <React.Fragment>
-        <Helmet titleTemplate={`%s | ${title}`}>
+        <Helmet titleTemplate={`%s - ${APP_TITLE}`}>
           <title>Resource not found!</title>
         </Helmet>
-        <div className={styles.container} data-tid="container">
+        <div className={styles.container}>
           <h1>Resource not found!</h1>
-          <Link to={routes.Home.path}>Go back Home</Link>
+          <Link to={routes.Home.path}>Go back</Link>
         </div>
       </React.Fragment>
     );

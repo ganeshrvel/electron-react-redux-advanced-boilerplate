@@ -1,5 +1,10 @@
+'use strict';
+
+/* eslint-disable no-unused-vars */
+
 import { createSelector } from 'reselect';
+import { initialState } from './reducers';
 
-const makeApp = (state, props) => state.App;
+const make = (state, props) => (state ? state.App : {});
 
-export const makeIsLoading = createSelector(makeApp, state => state.___isLoading);
+/* eslint-enable no-unused-vars */
