@@ -80,17 +80,30 @@ $ yarn package-all
 - *config/env/env.dev.js* and *config/env/env.prod.js* contain the PORT number of the app.
 - *config/dev-app-update.yml* file holds the GitHub repo variables required by *electron-updater*.
 - *config/google-analytics-key.js* file contains the Google Analytics Tracking ID.
-- *package.json* **build.publish** object holds the values for publishing the packaged application.
+- *package.json* "build.publish" object holds the values for publishing the packaged application.
 - *app/constants* folder contains all the constants required by the app.
 
 ### General Information
-- Port assigned: **3642**
-- The logs and settings file can be found in ~/.io.ganeshrvel/electron-react-redux-advanced-boilerplate (which are the values picked up from package.json)
+- Port assigned: 3642
+- The logs and settings file can be found in *~/.io.ganeshrvel/electron-react-redux-advanced-boilerplate* (which are the values picked up from package.json)
 
-To use a local image inside the app use require('../file.jpg');
+### Usage
+**Binaries**
+- Binaries and native files should be kept inside the folder *build/{OS_NAME}/bin*. e.g: *build/mac/bin* for macOS
+- Refer to the binary files as:
+
+```javascript
+import { binaryFile } from '../../utils/binaries';
+```
+- Update *package.json* "build.extraFiles" and "build.mas.binaries" objects accordingly.
+
+**Images**
+
+- Image files should be kept inside the folder *./app/public/images*
+- Import the image files as:
+
 ```javascript
 // Example
-// Default images folder: ./app/public/images
  <img
             src={imgsrc('keyboard.jpg')}
             width="100px"
@@ -103,7 +116,6 @@ To use a local image inside the app use require('../file.jpg');
  * @param returnNoImageFound (optional)
  */
 ```
-And place the image file inside the *./app/public/images* folder
 
 ### Changelog
 **v2.0.1**
@@ -180,4 +192,3 @@ Please feel free to contact me at ganeshrvel@outlook.com
 electron-react-redux-advanced-boilerplate | Electron React Redux Advanced Boilerplate is released under [MIT License](https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate/blob/master/LICENSE "MIT License").
 
 Copyright © 2018 - 2019 Ganesh Rathinavel
-
