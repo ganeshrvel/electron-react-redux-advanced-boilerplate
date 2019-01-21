@@ -6,7 +6,7 @@
 - Contacts: ganeshrvel@outlook.com
 - Requirements: Node.js v10 or higher, yarn
 
-##### Advanced and highly scalable boilerplate built using Electron v4, React v16, Redux v4, Webpack v4, Babel v7 {HMR, Helmet, Loadables, Dynamic Reducer Injection, Selectors, Code splitting}
+##### Advanced and Highly Scalable Boilerplate for building Electron app - Electron v4, React v16, Redux v4, Webpack v4, Babel v7 {HMR, Helmet, Loadables, Dynamic Reducer Injection, Selectors, Code splitting}
 
 ###### Electron.js is an excellent framework for creating cross-platform native applications using HTML/CSS/JS. But there are only a handful of frameworks available online to get going and I found most of them lack advanced features.
 

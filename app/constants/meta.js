@@ -31,7 +31,9 @@ export const AUTHOR_NAME = undefinedOrNullChained(author, 'name')
   ? author.name
   : null;
 
-export const APP_TITLE = `${description}`;
+export const APP_DESC = `${description}`;
+
+export const APP_TITLE = `${APP_NAME}`;
 
 export const APP_IDENTIFIER = `${name}`;
 

@@ -2,7 +2,7 @@
   "name": "electron-react-redux-advanced-boilerplate",
   "productName": "Electron-React-Redux-Advanced-Boilerplate",
   "version": "2.0.2",
-  "description": "Advanced and highly scalable boilerplate built using Electron v4, React v16, Redux v4, Webpack v4, Babel v7 {HMR, Loadables, Dynamic Reducer Injection, Selectors, Code splitting}",
+  "description": "Advanced and Highly Scalable Boilerplate for building Electron app - Electron v4, React v16, Redux v4, Webpack v4, Babel v7 {HMR, Helmet, Loadables, Dynamic Reducer Injection, Selectors, Code splitting}",
   "scripts": {
     "build": "yarn lint && concurrently \"yarn build-main\" \"yarn build-renderer\"",
     "build-dll": "cross-env NODE_ENV=development node --trace-warnings -r @babel/register ./node_modules/webpack/bin/webpack --config ./webpack/config.renderer.dev.dll.babel.js --colors",

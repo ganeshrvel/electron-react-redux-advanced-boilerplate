@@ -17,7 +17,6 @@ import { nonBootableDeviceWindow } from './utils/createWindows';
 import { APP_TITLE } from './constants/meta';
 import { isPackaged } from './utils/isPackaged';
 
-const isSingleInstance = app.requestSingleInstanceLock();
 const isDeviceBootable = bootTheDevice();
 const isMas = electronIs.mas();
 let mainWindow = null;
@@ -102,25 +101,6 @@ if (!isDeviceBootable) {
       log.error(e, `main.dev -> installExtensions`);
     }
   };
-
-  if (!isSingleInstance) {
-    app.quit();
-  } else {
-    try {
-      app.on('second-instance', () => {
-        if (mainWindow) {
-          if (mainWindow.isMinimized()) {
-            mainWindow.restore();
-          }
-          mainWindow.focus();
-        }
-      });
-
-      app.on('ready', () => {});
-    } catch (e) {
-      log.error(e, `main.dev -> second-instance`);
-    }
-  }
 
   const createWindow = async () => {
     try {
