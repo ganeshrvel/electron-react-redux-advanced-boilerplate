@@ -1,7 +1,7 @@
 {
   "name": "electron-react-redux-advanced-boilerplate",
-  "productName": "Electron-React-Redux-Advanced-Boilerplate",
-  "version": "2.0.2",
+  "productName": "Electron React Redux Advanced Boilerplate",
+  "version": "2.1.10",
   "description": "Advanced and Highly Scalable Boilerplate for building Electron app - Electron v4, React v16, Redux v4, Webpack v4, Babel v7 {HMR, Helmet, Loadables, Dynamic Reducer Injection, Selectors, Code splitting}",
   "scripts": {
     "build": "yarn lint && concurrently \"yarn build-main\" \"yarn build-renderer\"",
@@ -52,7 +52,7 @@
   "browserslist": "electron 4.0",
   "main": "./app/main.prod.js",
   "build": {
-    "productName": "Electron-React-Redux-Advanced-Boilerplate",
+    "productName": "Electron React Redux Advanced Boilerplate",
     "appId": "io.ganeshrvel.electron-react-redux-advanced-boilerplate",
     "forceCodeSigning": true,
     "copyright": "© Ganesh Rathinavel",
@@ -97,7 +97,7 @@
       "entitlements": "build/entitlements.mas.plist",
       "icon": "build/icon.icns",
       "binaries": [
-        "dist/mas/Electron-React-Redux-Advanced-Boilerplate.app/Contents/Resources/bin/mtp-cli"
+        "dist/mas/Electron React Redux Advanced Boilerplate.app/Contents/Resources/bin/some-binary"
       ]
     },
     "dmg": {
