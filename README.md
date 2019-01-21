@@ -1,4 +1,4 @@
-# Electron-React-Redux Advanced Boilerplate
+# Electron React Redux Advanced Boilerplate
 
 - Author: [Ganesh Rathinavel](https://www.linkedin.com/in/ganeshrvel "Ganesh Rathinavel")
 - License: [MIT](https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate/blob/master/LICENSE "MIT")
@@ -177,7 +177,7 @@ Please feel free to contact me at ganeshrvel@outlook.com
 
 
 ### License
-electron-react-redux-advanced-boilerplate | Electron-React-Redux Advanced Boilerplate is released under [MIT License](https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate/blob/master/LICENSE "MIT License").
+electron-react-redux-advanced-boilerplate | Electron React Redux Advanced Boilerplate is released under [MIT License](https://github.com/ganeshrvel/electron-react-redux-advanced-boilerplate/blob/master/LICENSE "MIT License").
 
 Copyright © 2018 - 2019 Ganesh Rathinavel
 
